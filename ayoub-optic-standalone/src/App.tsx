@@ -7,6 +7,24 @@ import { TooltipProvider } from '@/components/ui/tooltip';
 import NotFound from '@/pages/not-found';
 import { Link, Route, Switch, useLocation, Router as WouterRouter } from 'wouter';
 
+import optic1 from './images/optic1.jpg';
+import optic2 from './images/optic2.jpg';
+import optic3 from './images/optic3.jpg';
+import optic4 from './images/optic4.jpg';
+import optic5 from './images/optic5.jpg';
+import optic6 from './images/optic6.jpg';
+import optic7 from './images/optic7.jpg';
+import optic8 from './images/optic8.jpg';
+import optic9 from './images/optic9.jpg';
+import optic10 from './images/optic10.jpg';
+import optic11 from './images/optic11.jpg';
+import optic12 from './images/optic12.jpg';
+import optic13 from './images/optic13.jpg';
+import optic14 from './images/optic14.jpg';
+import optic15 from './images/optic15.jpg';
+import optic16 from './images/optic16.jpg';
+import optic17 from './images/optic17.jpg';
+
 const queryClient = new QueryClient();
 
 type Product = {
@@ -24,72 +42,204 @@ type Product = {
 
 const products: Product[] = [
   {
-    id: 'atlas',
-    name: 'Atlas 01',
+    id: 'Paparazzi',
+    name: 'Paparazzi',
     category: 'Optical',
-    price: '$210',
-    image: 'https://images.pexels.com/photos/343720/pexels-photo-343720.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    tone: 'Ink acetate',
-    description: 'A softly squared everyday frame with a little more presence. Built for long days and considered outfits.',
-    details: ['Hand-finished acetate', 'CR-39 clear lenses', '48–21–145 mm'],
-    colors: ['Ink', 'Honey', 'Mist'],
-    badge: 'Studio favourite',
+    price: '$80',
+    image: optic1,
+    tone: 'Matte Black',
+    description: 'Timeless Venetian elegance. A classic, bold silhouette with a comfortable keyhole bridge.',
+    details: ['Hand-finished acetate', 'Clear premium lenses', 'Standard fit'],
+    colors: ['Matte Black', 'Ink', 'Tortoise'],
+    badge: 'Timeless Elegance',
   },
   {
-    id: 'noor',
-    name: 'Noor 02',
+    id: 'smudge-b-titanium',
+    name: 'Ray-Ban',
     category: 'Optical',
-    price: '$230',
-    image: 'https://images.pexels.com/photos/46710/pexels-photo-46710.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    tone: 'Champagne metal',
-    description: 'Fine lines, warm metal, and an easy oval that catches the light without asking for attention.',
-    details: ['Japanese titanium', 'Anti-reflective coating', '49–19–140 mm'],
-    colors: ['Champagne', 'Black', 'Silver'],
+    price: '$90',
+    image: optic2,
+    tone: 'Blue Metal',
+    description: 'Premium B-Titanium craftsmanship. Lightweight, durable, and designed for everyday wear.',
+    details: ['B-Titanium frame', 'Model 51216', '47-18-144 mm'],
+    colors: ['Blue', 'Silver', 'Gunmetal'],
+    badge: 'Lightweight',
   },
   {
-    id: 'sirocco',
-    name: 'Sirocco 03',
+    id: 'solstice-uv400',
+    name: 'Paparazzi',
+    category: 'Optical',
+    price: '$80',
+    image: optic3,
+    tone: 'Gloss Black',
+    description: 'Premium polarized lenses with UV400 protection. Part of the Marcs & Polo Collection.',
+    details: ['Polarized lenses', 'UV400 Protection', 'Marcs & Polo Collection'],
+    colors: ['Black', 'Tortoise'],
+    badge: 'Summer Essential',
+  },
+  {
+    id: 'comogan-tr310',
+    name: 'Marcs & Polo',
+    category: 'Optical',
+    price: '$90',
+    image: optic4,
+    tone: 'Clear Crystal',
+    description: 'Timeless Comogan craftsmanship. Features unique red gemstone accents and a classic car charm.',
+    details: ['TR 310', '51-16-142 mm', 'Red gemstone rivets'],
+    colors: ['Clear', 'Grey'],
+    badge: 'Craftsmanship',
+  },
+  {
+    id: 'dvittorio-52182',
+    name: "Solstice",
+    category: 'Optical',
+    price: '$90',
+    image: optic5,
+    tone: 'Translucent Lilac',
+    description: 'Timeless Venetian elegance. A soft cat-eye shape with delicate detailing and a car charm.',
+    details: ['52182', '51-16-140 mm', 'Venetian Elegance'],
+    colors: ['Lilac', 'Clear', 'Pink'],
+    badge: 'Elegance',
+  },
+  {
+    id: 'starium-alloy',
+    name: 'Premium Polarized',
     category: 'Sun',
-    price: '$245',
-    image: 'https://images.pexels.com/photos/46710/pexels-photo-46710.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    tone: 'Smoke tortoise',
-    description: 'A generous sun shape with mineral-grey lenses. Designed for bright streets, late lunches, and everywhere between.',
-    details: ['Mazzucchelli acetate', 'Category 3 sun lens', '52–20–145 mm'],
-    colors: ['Smoke tortoise', 'Dune', 'Black'],
-    badge: 'New season',
+    price: '$90',
+    image: optic6,
+    tone: 'Amber Gradient',
+    description: 'A striking mix of black and clear acetate with warm amber gradient lenses.',
+    details: ['Starium Alloy', 'Category 3 Lens', 'UV Protection'],
+    colors: ['Black/Clear', 'Tortoise'],
   },
   {
-    id: 'linea',
-    name: 'Linea 04',
+    id: 'umberto-t',
+    name: 'Retro Aviator',
+    category: 'Optical',
+    price: '$35',
+    image: optic7,
+    tone: 'Translucent Grey',
+    description: 'A refined frame featuring a central red gemstone detail and premium metal accents.',
+    details: ['TR 90', '51-18-140 mm', 'Red gemstone detail'],
+    colors: ['Grey', 'Brown'],
+    badge: 'Luxury Detail',
+  },
+  {
+    id: 'paparazzi-junior',
+    name: 'RAY-BAN',
+    category: 'Optical',
+    price: '$35',
+    image: optic8,
+    tone: 'Black',
+    description: 'Flex for Kids. Durable, flexible frames designed specifically for active children.',
+    details: ['Flex for Kids', 'Impact resistant', 'Comfort fit'],
+    colors: ['Black', 'Blue', 'Red'],
+    badge: 'Kids Collection',
+  },
+  {
+    id: 'vittorio-veneto-clear',
+    name: 'Lorsd',
+    category: 'Optical',
+    price: '$25',
+    image: optic9,
+    tone: 'Clear Crystal',
+    description: 'Timeless Venetian elegance in a translucent finish. Lightweight and versatile.',
+    details: ['Clear acetate', 'Car charm', 'Venetian Elegance'],
+    colors: ['Clear', 'Pink'],
+  },
+  {
+    id: 'rayban-hexagonal',
+    name: 'D-Vittorio',
+    category: 'Sun',
+    price: '$50',
+    image: optic10,
+    tone: 'Dark Grey',
+    description: 'A modern take on a classic shape. Flat lenses and a distinctive hexagonal silhouette.',
+    details: ['Ray-Ban', 'Flat Lenses', 'Hexagonal shape'],
+    colors: ['Dark Grey', 'Gold', 'Black'],
+    badge: 'Iconic',
+  },
+  {
+    id: 'paparazzi-kids',
+    name: 'Vittorio Veneto',
+    category: 'Optical',
+    price: '$50',
+    image: optic11,
+    tone: 'Lilac',
+    description: 'Flex for Kids. Fun, colorful, and flexible frames that can handle everyday play.',
+    details: ['Flex for Kids', 'Paparazzi', 'Durable TR90'],
+    colors: ['Lilac', 'Pink', 'Blue'],
+    badge: 'Kids Collection',
+  },
+  {
+    id: 'rayban-anti-blue',
+    name: 'Comogan Eyewear',
     category: 'Blue light',
-    price: '$195',
-    image: 'https://images.pexels.com/photos/2690323/pexels-photo-2690323.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    tone: 'Clear crystal',
-    description: 'A light, precise frame for screen-heavy days. Quietly technical, with enough personality to leave the desk.',
-    details: ['Bio-nylon frame', 'Blue-violet filter', '47–21–140 mm'],
-    colors: ['Clear', 'Sea glass', 'Graphite'],
+    price: '$20',
+    image: optic12,
+    tone: 'Clear',
+    description: 'Elevate your vision. Ray-Ban Clear Anti-Blue Light Collection to protect your eyes from screens.',
+    details: ['Anti Blue Light', 'UV 400', 'Ray-Ban Clear'],
+    colors: ['Clear'],
+    badge: 'Screen Protection',
   },
   {
-    id: 'lumen',
-    name: 'Lumen 05',
-    category: 'Sun',
-    price: '$260',
-    image: 'https://images.pexels.com/photos/701877/pexels-photo-701877.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    tone: 'Cobalt acetate',
-    description: 'A crisp, architectural silhouette in a blue that feels at home beside the sea or under city light.',
-    details: ['Italian acetate', 'Polarised lenses', '54–18–145 mm'],
-    colors: ['Cobalt', 'Ink', 'Pearl'],
-  },
-  {
-    id: 'mira',
-    name: 'Mira 06',
+    id: 'llord-tri005',
+    name: 'Smudge B-Titanium',
     category: 'Optical',
-    price: '$220',
-    image: 'https://images.pexels.com/photos/356147/pexels-photo-356147.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    tone: 'Soft black',
-    description: 'The polished, slightly oversized frame you reach for on purpose. Clean, generous, and unmistakably yours.',
-    details: ['Plant-based acetate', 'Clear premium lens', '51–19–145 mm'],
-    colors: ['Soft black', 'Pale blue', 'Tea'],
+    price: '$30',
+    image: optic13,
+    tone: 'Matte Silver',
+    description: 'A sleek, minimalist metal frame from the TRI005 Collection. Lightweight and professional.',
+    details: ['TR1005', '52-18-140 mm', 'TRI005 Collection'],
+    colors: ['Silver', 'Gunmetal'],
+  },
+  {
+    id: 'luxury-italy',
+    name: 'Vittorio Veneto',
+    category: 'Optical',
+    price: '$50',
+    image: optic14,
+    tone: 'Black Metal',
+    description: 'Italian craftsmanship and titanium perfection. A premium round metal frame.',
+    details: ['Titanium', 'VC-77162', '46-17-145 mm'],
+    colors: ['Black', 'Gold', 'Silver'],
+    badge: 'Titanium Perfection',
+  },
+  {
+    id: 'chanel-anti-blue',
+    name: 'Square Magnetic Clip-On',
+    category: 'Blue light',
+    price: '$30',
+    image: optic15,
+    tone: 'Matte Black',
+    description: 'High-fashion protection. Chanel frames equipped with anti-blue light technology for digital clarity.',
+    details: ['Anti Blue Light', 'UV 400', 'Chanel'],
+    colors: ['Black', 'Tortoise'],
+    badge: 'Designer',
+  },
+  {
+    id: 'solstice-aviator',
+    name: 'Luxury Italy',
+    category: 'Sun',
+    price: '$30',
+    image: optic16,
+    tone: 'Gold Metal',
+    description: 'Summer Ready Aviators. Premium polarized lenses with UV400 protection for bright days.',
+    details: ['Polarized', 'UV400 Protection', 'Solstice Optics'],
+    colors: ['Gold', 'Silver'],
+    badge: 'Summer Ready',
+  },
+  {
+    id: 'solstice-classic-aviator',
+    name: 'Chanel Blue Light',
+    category: 'Sun',
+    price: '$35',
+    image: optic17,
+    tone: 'Bronze',
+    description: 'Classic aviator styling with warm bronze lenses. Perfect for the beach or the city.',
+    details: ['Polarized', 'UV400 Protection', 'Aviator shape'],
+    colors: ['Bronze', 'Gold'],
   },
 ];
 
@@ -137,12 +287,12 @@ const chatbotTopics = [
   {
     label: 'Opening hours',
     keywords: ['hour', 'hours', 'open', 'opening', 'time', 'when'],
-    answer: 'Our studio is open Tuesday to Saturday, from 10:00 to 19:00.',
+    answer: 'Our studio is open Monday to Saturday, from 10:00 to 7:00.',
   },
   {
     label: 'Where are you?',
     keywords: ['where', 'location', 'address', 'visit', 'studio', 'find'],
-    answer: 'You can visit us at 16 Rue des Arts in Casablanca, Morocco.',
+    answer: 'You can visit us at Ghobeiry, Rawdat Al shahidain beside al safa Sweets.',
   },
   {
     label: 'Book a fitting',
@@ -599,13 +749,28 @@ function Contact() {
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const form = event.currentTarget;
+    
+    // Validate inputs
     if (!email || !email.includes('@') || message.trim().length < 10) {
       setStatus('error');
       return;
     }
+
+    // Construct the WhatsApp message
+    // Country code + number, no + or spaces (Lebanon +961)
+    const phoneNumber = '961715955276'; 
+    const encodedMessage = encodeURIComponent(
+      `New Inquiry from Website:\n\nEmail: ${email}\n\nMessage: ${message}`
+    );
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+    // Open WhatsApp in a new tab
+    window.open(whatsappUrl, '_blank');
+
+    // Show success state
     setStatus('success');
-    form.reset();
+    
+    // Clear the form
     setEmail('');
     setMessage('');
   }
@@ -617,8 +782,8 @@ function Contact() {
           <p className="font-mono-ui text-[10px] uppercase tracking-[0.24em] text-[#a9ddf5]">04 / Come say hello</p>
           <h2 className="mt-7 font-display text-[clamp(4rem,8vw,8rem)] leading-[.8] tracking-[-.07em]">Let’s find<br /><em>your</em><br />perfect<br />frame.</h2>
           <div className="mt-12 grid gap-6 text-[12px] text-[#eaf8fd]/65 sm:grid-cols-2">
-            <div><MapPin size={16} strokeWidth={1.3} className="mb-3 text-[#a9ddf5]" /><p>16 Rue des Arts<br />Casablanca, MA</p></div>
-            <div><Clock3 size={16} strokeWidth={1.3} className="mb-3 text-[#a9ddf5]" /><p>Tue—Sat<br />10:00—19:00</p></div>
+            <div><MapPin size={16} strokeWidth={1.3} className="mb-3 text-[#a9ddf5]" /><p>Rawdat al shahiden<br />Ghobeiry</p></div>
+            <div><Clock3 size={16} strokeWidth={1.3} className="mb-3 text-[#a9ddf5]" /><p>Mon—Sat<br />10:00—19:00</p></div>
           </div>
         </div>
         <div className="reveal reveal-delay-2 md:pt-12">
@@ -635,14 +800,14 @@ function Contact() {
             <div className="mt-7 flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
               <button type="submit" data-testid="button-submit-contact" className="group flex items-center justify-center gap-3 rounded-full bg-[#a9ddf5] px-6 py-3.5 text-[11px] font-bold uppercase tracking-[0.14em] text-[#111] transition-transform duration-300 hover:-translate-y-1">Send inquiry <Send size={15} strokeWidth={1.5} className="transition-transform duration-300 group-hover:translate-x-1" /></button>
               <div aria-live="polite" data-testid="status-contact-form" className="text-[11px] leading-5">
-                {status === 'success' && <span className="flex items-center gap-2 text-[#a9ddf5]"><Check size={14} /> Message received. We’ll be in touch.</span>}
+                {status === 'success' && <span className="flex items-center gap-2 text-[#a9ddf5]"><Check size={14} /> Opening WhatsApp...</span>}
                 {status === 'error' && <span className="text-[#f2b5a8]">Please add a valid email and a little more detail.</span>}
               </div>
             </div>
           </form>
           <div className="mt-16 flex items-center gap-5 border-t border-[#eaf8fd]/15 pt-5 text-[10px] uppercase tracking-[0.16em] text-[#eaf8fd]/50">
             <a href="mailto:hello@ayouboptic.com" data-testid="link-email-contact" className="transition-colors hover:text-[#a9ddf5]"><Mail size={14} className="mr-2 inline" /> Email</a>
-            <a href="tel:+212522000000" data-testid="link-phone-contact" className="transition-colors hover:text-[#a9ddf5]"><Phone size={14} className="mr-2 inline" /> Call</a>
+            <a href="tel:+961715955276" data-testid="link-phone-contact" className="transition-colors hover:text-[#a9ddf5]"><Phone size={14} className="mr-2 inline" /> Call</a>
           </div>
         </div>
       </div>
@@ -660,7 +825,7 @@ function Footer() {
             <p className="mt-5 max-w-[230px] text-[11px] leading-5 text-[#eaf8fd]/45">Independent eyewear for clear vision and considered living.</p>
           </div>
           <div className="flex items-center gap-5 text-[10px] uppercase tracking-[0.17em] text-[#eaf8fd]/50">
-            <a href="https://www.instagram.com" target="_blank" rel="noreferrer" data-testid="link-instagram" className="transition-colors hover:text-[#a9ddf5]"><Instagram size={15} className="mr-2 inline" /> Instagram</a>
+            <a href="https://www.instagram.com/ayouboptics" target="_blank" rel="noreferrer" data-testid="link-instagram" className="transition-colors hover:text-[#a9ddf5]"><Instagram size={15} className="mr-2 inline" /> Instagram</a>
             <button type="button" onClick={() => scrollToId('top')} data-testid="button-back-to-top" className="transition-colors hover:text-[#a9ddf5]">Back to top <ChevronUpIcon /></button>
           </div>
         </div>
