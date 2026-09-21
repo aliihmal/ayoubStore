@@ -1,9 +1,11 @@
 import { type FormEvent, type ReactNode, useEffect, useMemo, useState } from 'react';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { QueryClient, QueryClientProvider, useQuery, useQueryClient } from '@tanstack/react-query';
 import { ArrowDownRight, ArrowUpRight, Bot, Check, Clock3, Eye, Instagram, Mail, MapPin, Menu, MessageCircle, Minus, Phone, Plus, Search, Send, X } from 'lucide-react';
 import { ErrorBoundary } from '@/components/error-boundary';
 import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
+import { AddProductForm } from '@/components/ui/AddProductForm';
+import { fetchOwnerProducts } from '@/lib/api';
 import NotFound from '@/pages/not-found';
 import { Link, Route, Switch, useLocation, Router as WouterRouter } from 'wouter';
 
@@ -40,7 +42,7 @@ type Product = {
   badge?: string;
 };
 
-const products: Product[] = [
+const defaultProducts: Product[] = [
   {
     id: 'Paparazzi',
     name: 'Paparazzi',
@@ -242,6 +244,30 @@ const products: Product[] = [
     colors: ['Bronze', 'Gold'],
   },
 ];
+
+// Merges your 17 curated frames above with whatever the owner has added
+// through the backend. If the backend isn't running (e.g. local dev without
+// it started), this quietly falls back to just the 17 defaults.
+async function fetchProducts(): Promise<Product[]> {
+  try {
+    const added = await fetchOwnerProducts<Product>();
+    console.log("Succsseddeded");
+    return [...defaultProducts, ...added];
+  } catch (error) {
+    console.error('Could not load owner products:', error);  // ← add this line
+    return defaultProducts;
+  }
+}
+
+function useProductCatalog() {
+  const { data } = useQuery({
+    queryKey: ['products'],
+    queryFn: fetchProducts,
+    initialData: defaultProducts,
+    staleTime: 30_000,
+  });
+  return data;
+}
 
 const navItems = [
   { label: 'Collection', target: 'collection' },
@@ -630,9 +656,9 @@ function ProductCard({ product, onSelect }: { product: Product; onSelect: (produ
   );
 }
 
-function Collection({ onSelect, preview = false }: { onSelect: (product: Product) => void; preview?: boolean }) {
+function Collection({ onSelect, preview = false, products }: { onSelect: (product: Product) => void; preview?: boolean; products: Product[] }) {
   const [filter, setFilter] = useState<'All' | Product['category']>('All');
-  const filteredProducts = useMemo(() => filter === 'All' ? products : products.filter((product) => product.category === filter), [filter]);
+  const filteredProducts = useMemo(() => filter === 'All' ? products : products.filter((product) => product.category === filter), [filter, products]);
   const visibleProducts = preview ? filteredProducts.slice(0, 6) : filteredProducts;
   const filters: Array<'All' | Product['category']> = ['All', 'Optical', 'Sun', 'Blue light'];
 
@@ -892,6 +918,8 @@ function ProductModal({ product, onClose }: { product: Product; onClose: () => v
 function CollectionPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const products = useProductCatalog();
+  const queryClient = useQueryClient();
   useRevealObserver();
 
   useEffect(() => {
@@ -924,7 +952,8 @@ function CollectionPage() {
           </div>
         </div>
       </section>
-      <Collection onSelect={setSelectedProduct} />
+      <Collection onSelect={setSelectedProduct} products={products} />
+      <AddProductForm onAdded={() => queryClient.invalidateQueries({ queryKey: ['products'] })} />
       <Footer />
       {selectedProduct && <ProductModal product={selectedProduct} onClose={() => setSelectedProduct(null)} />}
       <LimitedChatbot />
@@ -935,6 +964,7 @@ function CollectionPage() {
 function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const products = useProductCatalog();
   useRevealObserver();
 
   return (
@@ -944,7 +974,7 @@ function Home() {
       {isMenuOpen && <MobileMenu onClose={() => setIsMenuOpen(false)} />}
       <Hero />
       <IntroStrip />
-      <Collection onSelect={setSelectedProduct} preview />
+      <Collection onSelect={setSelectedProduct} preview products={products} />
       <Approach />
       <StudioNote />
       <Contact />
