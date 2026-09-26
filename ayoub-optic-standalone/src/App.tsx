@@ -784,7 +784,7 @@ function Contact() {
 
     // Construct the WhatsApp message
     // Country code + number, no + or spaces (Lebanon +961)
-    const phoneNumber = '961715955276'; 
+    const phoneNumber = '96171595276'; 
     const encodedMessage = encodeURIComponent(
       `New Inquiry from Website:\n\nEmail: ${email}\n\nMessage: ${message}`
     );
@@ -833,7 +833,7 @@ function Contact() {
           </form>
           <div className="mt-16 flex items-center gap-5 border-t border-[#eaf8fd]/15 pt-5 text-[10px] uppercase tracking-[0.16em] text-[#eaf8fd]/50">
             <a href="mailto:hello@ayouboptic.com" data-testid="link-email-contact" className="transition-colors hover:text-[#a9ddf5]"><Mail size={14} className="mr-2 inline" /> Email</a>
-            <a href="tel:+961715955276" data-testid="link-phone-contact" className="transition-colors hover:text-[#a9ddf5]"><Phone size={14} className="mr-2 inline" /> Call</a>
+            <a href="tel:+96171595276" data-testid="link-phone-contact" className="transition-colors hover:text-[#a9ddf5]"><Phone size={14} className="mr-2 inline" /> Call</a>
           </div>
         </div>
       </div>
